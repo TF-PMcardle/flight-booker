@@ -1,2 +1,46 @@
 <div class="d-flex align-items-center justify-content-center">
-<h1>About Us</h1>
+<h1>Passenger details</h1>
+</div>
+<%= form_with model: @Passenger, url: about_path do |form| %>
+
+
+
+
+<div class="mb-3">
+<%= form.label :name %>
+<%= form.text_field :name, class: "form-control", placeholder: "name" %>
+</div>
+
+<div class="mb-3">
+<%= form.label :surname %>
+<%= form.text_field :surname, class: "form-control", placeholder: "surname" %>
+</div>
+
+<div class="mb-3">
+<%= form.label :email%>
+<%= form.text_field :email, class: "form-control", placeholder: "steve@example.com" %>
+</div>
+<div class="mb-3">
+<%= form.label :passport_number%>
+<%= form.text_field :passport_number, class: "form-control", placeholder: "11111111111" %>
+</div>
+
+<div class="mb-3">
+    <%= form.label :date_of_birth, style: "display: block" %>
+    <%= form.date_field :date_of_birth %>
+</div>
+
+<h6>Gender</h6>
+<div>
+    <input type="radio" id="huey" name="drone" value="huey" checked />
+    <label for="huey">Male</label>
+</div>
+<div>
+    <input type="radio" id="huey" name="drone" value="huey" checked />
+    <label for="huey">Female</label>
+</div>
+
+<div class="mb-3">
+<%= form.submit "confirm details", class: "btn btn-primary" %>
+</div>
+<% end %>

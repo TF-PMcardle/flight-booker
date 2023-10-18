@@ -1,0 +1,36 @@
+<%= form_with(model: create_flight) do |form| %>
+  <% if create_flight.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(create_flight.errors.count, "error") %> prohibited this create_flight from being saved:</h2>
+
+      <ul>
+        <% create_flight.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :Departing_From, style: "display: block" %>
+<%= form.select :depairport, ["BFS", "BHD", "DUB", "LDH", "LDS", "EDI", "CWL"]%>
+  </div>
+
+
+  <div>
+    <%= form.label :Arriving_At, style: "display: block" %>
+   <%= form.select :arrairport, ["BFS", "BHD", "DUB", "LDH", "LDS", "EDI", "CWL"]%>
+
+
+</select>
+  </div>
+
+  <div>
+    <%= form.label :Date_And_Time, style: "display: block" %>
+    <%= form.datetime_field :datetime %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
