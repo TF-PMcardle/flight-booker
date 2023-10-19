@@ -1,0 +1,15 @@
+.d-flex.align-items-center.justify-content-center
+  %h1 Available Flights
+%h1
+%div
+  %h2 Select your desired flight time
+%div
+  %input#huey{:checked => "checked", :name => "drone", :type => "radio", :value => "huey"}/
+  %label{:for => "huey"} 06:30
+%div
+  %input#huey{:checked => "checked", :name => "drone", :type => "radio", :value => "huey"}/
+  %label{:for => "huey"} 12:10
+%div
+  %input#huey{:checked => "checked", :name => "drone", :type => "radio", :value => "huey"}/
+  %label{:for => "huey"} 18:30
+= link_to "confirm", about_path
