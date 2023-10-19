@@ -1,11 +1,11 @@
 class FlightController < ApplicationController
     def new
-        @flights = Flight.new
+        @Flight = Flight.new
     end
 
     def create
-    	@flights = Flight.new(flights_params)
-    	if @flights.save
+    	@Flight = Flight.new(flights_params)
+    	if @Flight.save
             session[:flight_id] = @flight.id
     		redirect_to root_path, notice: "successfully created flight"
     	else
