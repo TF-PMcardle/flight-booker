@@ -6,8 +6,7 @@ one:
   sname: MyString
   email: MyString
   passportnum: MyString
-  dateofbirth: 2023-10-19 14:56:19
-  gender: MyString
+  dateofbirth: 2023-10-23 14:59:29
 
 two:
   flightid: MyString
@@ -15,5 +14,4 @@ two:
   sname: MyString
   email: MyString
   passportnum: MyString
-  dateofbirth: 2023-10-19 14:56:19
-  gender: MyString
+  dateofbirth: 2023-10-23 14:59:29
