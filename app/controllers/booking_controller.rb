@@ -1,4 +1,4 @@
-class AboutController < ApplicationController
+class BookingController < ApplicationController
     def new
         @booking = Booking.new
     end
@@ -6,10 +6,17 @@ class AboutController < ApplicationController
     def create
         @booking = Booking.new(bookings_params)
     	if @booking.save
-            session[:bookings_id] = @bookings.id
+            session[:booking_id] = @booking.id
     		redirect_to root_path, notice: "successfully created booking"
     	else
     		render :new
-        end
     end
+end
+
+private
+
+def bookings_params
+    params.permit(:flightid, :fname, :sname, :email, :passportnum, :dateofbirth, :gender)
+end
+
 end

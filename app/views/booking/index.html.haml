@@ -1,0 +1,9 @@
+%p{:style => "color: green"}= notice
+%h1 Bookings
+%h2 Saved flight bookings will show up here
+
+#bookings
+  - @bookings.each do |booking|
+    = render booking
+    \------------------------------------------------------------
+
