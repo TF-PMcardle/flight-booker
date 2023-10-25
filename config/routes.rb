@@ -18,7 +18,6 @@ Rails.application.routes.draw do
 
  get "search_for_flight", to: "search_for_flight#search"
 
- get "bookings", to: "bookings#delete"
 
  root to: "main#index"
 
