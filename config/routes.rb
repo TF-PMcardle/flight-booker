@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   resources :airports
  get "search", to: "search#index"
 
+
+
+
  get "about", to: "about#new"
  post "about", to: "bookings#create"
 
@@ -10,7 +13,9 @@ Rails.application.routes.draw do
  
  get "bookings", to: "bookings#index"
 
- get "bookings/edit", to: "bookings#update"
+ delete "bookings", to: "bookings#destroy"
+
+ get "bookings/edit", to: "bookings#edit"
 
  get "flight", to: "flights#index"
 
@@ -19,6 +24,6 @@ Rails.application.routes.draw do
  get "search_for_flight", to: "search_for_flight#search"
 
 
- root to: "main#index"
+ root to: "search_for_flight#search"
 
 end

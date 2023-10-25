@@ -1,19 +1,18 @@
-%div{:id => "#{dom_id booking}"}
+%div{:id => "#{dom_id booking}"} 
   %p
-    %strong Flightid:
+    %strong Booking id:
+    = booking.id
+  %p
+    %strong Flying From:
     = booking.flightid
   %p
-    %strong Fname:
-    = booking.fname
+    %strong Flying To:
+    = booking.flightid
   %p
-    %strong Sname:
-    = booking.sname
+    %strong Passenger name:
+    = booking.fname + " " + booking.sname
+
   %p
     %strong Email:
     = booking.email
-  %p
-    %strong Passportnum:
-    = booking.passportnum
-  %p
-    %strong Dateofbirth:
-    = booking.dateofbirth
+

@@ -1,9 +1,6 @@
 .d-flex.align-items-center.justify-content-center
   %h1 Update Flight details
-= form_with model: @Passenger, url: about_path do |form|
-  .mb-3
-    = form.label :Flight_ID
-    = form.text_field :Flightid, class: "form-control", placeholder: "10"
+= form_with model: @bookings, url: about_path do |form|
   .mb-3
     = form.label :name
     = form.text_field :name, class: "form-control", placeholder: "name"
@@ -20,4 +17,4 @@
     = form.label :date_of_birth, style: "display: block"
     = form.date_field :date_of_birth
   .mb-3
-    = form.submit "confirm details", class: "btn btn-primary", @booking, method: :Update"
+    = form.submit "confirm details", class: "btn btn-primary", @bookings, method: :Update

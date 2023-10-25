@@ -4,11 +4,11 @@
 %h2 Your saved flight bookings will show up here
 %h6 ----------------------------------------------------
 #booking
-  - @booking.each do |booking|
+  - @bookings.each do |booking|
     = render booking
-    = link_to "Edit this booking", edit_bookings_path
+    = link_to "Edit this booking"
     |
-    \#{button_to "Destroy this create flight", @create_flight, method: :delete}
+    \#{button_to "Destroy this booking", @booking, method: :delete}
 
     %h6 ----------------------------------------------------
     %p
