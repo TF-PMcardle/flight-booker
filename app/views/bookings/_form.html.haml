@@ -1,0 +1,16 @@
+= form_with(model: booking) do |form|
+
+  %div
+    = form.label :flight_Id, style: "display: block"
+    = form.text_field :flightid
+  %div
+    = form.label :Passenger_First_Name, style: "display: block"
+    = form.text_field :fname
+  %div
+    = form.label :Passenger_Last_Name, style: "display: block"
+    = form.text_field :sname
+  %div
+    = form.label :Email_Address, style: "display: block"
+    = form.text_field :email
+  %div
+    = form.submit

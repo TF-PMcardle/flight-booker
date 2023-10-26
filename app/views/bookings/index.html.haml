@@ -6,7 +6,7 @@
 #booking
   - @bookings.each do |booking|
     = render booking
-    = link_to "Edit this booking"
+    = link_to "Edit this booking", edit_booking_path(booking)
     |
     \#{button_to "Destroy this booking", @booking, method: :delete}
 

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :create_flights
   resources :airports
+  resources :bookings
  get "search", to: "search#index"
 
 
@@ -13,9 +14,10 @@ Rails.application.routes.draw do
  
  get "bookings", to: "bookings#index"
 
- delete "bookings", to: "bookings#destroy"
+ get "bookings", to: "bookings#destroy"
 
  get "bookings/edit", to: "bookings#edit"
+ post "bookings/edit", to: "bookings#update"
 
  get "flight", to: "flights#index"
 

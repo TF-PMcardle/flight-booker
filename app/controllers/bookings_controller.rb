@@ -1,13 +1,18 @@
 class BookingsController < ApplicationController
+  #before_action :set_booking
     def index
         @bookings = Booking.all
     end
 
+    def edit
+       
+    end
+
     def destroy
-        @booking = Booking.find(params[:id])
+        @booking = Booking.find(params[@booking.id])
         @booking.destroy
-        flash[:success] = "Booking was deleted successfully"
         redirect_to bookings_path
+        flash[:success] = "Booking was deleted successfully"
     end
     
     def new
@@ -23,15 +28,7 @@ class BookingsController < ApplicationController
     		render :new
     end
 
-    def update
-        respond_to do |format|
-          if @booking.update(booking_params)
-            format.html { redirect_to booking_url(@create_flight), notice: "Booking details were successfully updated." }
-          else
-            format.html { render :edit, status: :unprocessable_entity }
-          end
-        end
-      end
+
 
  
 end
@@ -42,4 +39,7 @@ def bookings_params
     params.permit(:id, :flightid, :fname, :sname, :email, :passportnum, :dateofbirth)
 end
 
+#def set_booking
+#  @bookings = Booking.find(params[:id])
+#end
 end
