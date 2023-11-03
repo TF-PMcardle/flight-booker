@@ -22,13 +22,13 @@ class BookingsController < ApplicationController
 
     def create
         @booking = Booking.new(bookings_params)
-    	if @booking.save
-            session[:booking_id] = @booking.id
-    		redirect_to root_path, notice: "successfully created booking"
-            #@booking.flightid = flightselect.id
-    	else
-    		render :new
+    	
+        session[:booking_id] = @booking.id
+    	redirect_to passengers_path, notice: "successfully created booking"
+        #@booking.flightid = flightselect.id
     end
+    		
+    
 
 
 
@@ -39,9 +39,10 @@ private
 
 def bookings_params
     params.permit(:id, :flight_id, :fname, :sname, :email, :passportnum, :dateofbirth)
-end
+
 
 #def set_booking
 #  @bookings = Booking.find(params[:id])
 #end
 end
+
