@@ -1,0 +1,21 @@
+%h3 Search Results
+
+= form_with(model: create_flight) do |form|
+- @results.each do |result|
+ = "Flight ID: #{result.id}" 
+ %br/
+ = "Departure Airport: #{result.dep_airport.airport_code}"
+ %br/
+ = "Arrival Airport: #{result.arr_airport.airport_code}"
+ %br/
+ = "Date And Time: #{result.date_time}"
+ %br/
+ %br/
+ 
+ //= link_to "Book This Flight", about_path
+ = form.radio_button :autolyse, false, :checked => true
+ 
+ %br/
+ \------------------------------------------------
+ %br/
+    

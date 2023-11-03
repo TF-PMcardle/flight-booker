@@ -1,17 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  flightid: MyString
-  fname: MyString
-  sname: MyString
-  email: MyString
-  passportnum: MyString
-  dateofbirth: 2023-10-23 14:59:29
+  flight_id: MyString
+  passenger_id: MyString
 
 two:
-  flightid: MyString
-  fname: MyString
-  sname: MyString
-  email: MyString
-  passportnum: MyString
-  dateofbirth: 2023-10-23 14:59:29
+  flight_id: MyString
+  passenger_id: MyString

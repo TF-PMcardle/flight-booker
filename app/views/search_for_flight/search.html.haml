@@ -1,24 +1,29 @@
 = form_tag(search_for_flight_path, :method => "get") do
- = select_tag :search, options_from_collection_for_select(@results, "depairport", "depairport"), {:prompt => 'Departure Airport'}
- = select_tag :search_arr_airport, options_from_collection_for_select(@results, "arrairport", "arrairport"), {:prompt => 'Arrival Airport'}
- = select_tag :search_dep_date, options_from_collection_for_select(@results, "datetime", "datetime"), {:prompt => 'Date'}
+ = select_tag :search, options_from_collection_for_select(@results, "dep_airport_id", "dep_airport_id"), {:prompt => 'Departure Airport'}
+ = select_tag :search_arr_airport, options_from_collection_for_select(@results, "arr_airport_id", "arr_airport_id"), {:prompt => 'Arrival Airport'}
+ = select_tag :search_dep_date, options_from_collection_for_select(@results, :date_time_formatted, :date_time_formatted), {:prompt => 'Date'}
  = select_tag :search_num_of_passengers, options_for_select([ '1', '2', '3', '4']), {:prompt => 'Number of Passengers'}
  = button_tag "Search for Flight"
 
-%h3 Search Results
+
+%h3 Search results
+
 - @results.each do |result|
  = "Flight ID: #{result.id}" 
  %br/
- = "Departure Airport: #{result.depairport}"
+ = "Departure Airport: #{result.dep_airport.airport_code}"
  %br/
- = "Arrival Airport: #{result.arrairport}"
+ = "Arrival Airport: #{result.arr_airport.airport_code}"
  %br/
- = "Date And Time: #{result.datetime}"
+ = "Date And Time: #{result.date_time}"
  %br/
  %br/
- 
- = link_to "Book This Flight", about_path
- 
+ %------------------------------------------- 
  %br/
- \------------------------------------------------
- %br/
+%br/
+%br/
+= form_with(model: @result) do |form|
+ = form.label :select_flight, style: "display: block"
+ = collection_radio_buttons(:flight_id, :flight_id, @results, :id, :id)
+ = form.submit
+
