@@ -1,11 +1,11 @@
-= form_with(model: passenger) do |form|
+= form_with(model: @passenger) do |form|
 
 
   %div
-    = form.label :Passenger_First_Name, style: "display: block"
+    = form.label :First_Name, style: "display: block"
     = form.text_field :fname
   %div
-    = form.label :Passenger_Last_Name, style: "display: block"
+    = form.label :Last_Name, style: "display: block"
     = form.text_field :sname
   %div
     = form.label :Email_Address, style: "display: block"
