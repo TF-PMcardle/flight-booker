@@ -1,0 +1,16 @@
+= form_with(model: @passenger) do |form|
+
+  %h1 Passenger Details
+  %br/
+  %br/
+  %div
+    = form.label :First_Name, style: "display: block"
+    = form.text_field :fname
+  %div
+    = form.label :Last_Name, style: "display: block"
+    = form.text_field :sname
+  %div
+    = form.label :Email_Address, style: "display: block"
+    = form.text_field :email
+  %div
+    = form.submit

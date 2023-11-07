@@ -1,23 +1,31 @@
 = form_tag(search_for_flight_path, :method => "get") do
-  .input-group
-    = search_field_tag :search, params[:search], placeholder: "Enter where you wish to fly from using airport codes! (BFS = Belfast International)", class: "form-control"
-    .input-group-btn
-      = button_tag "Search for Flight", :class => 'btn-btn-info glyphicon glyphicon-search', :depairport => nil
-%h3 Search Results
-%h6 Please save the flight ID of the flight you choose before moving on, as you will have to input this in the next page
+ = select_tag :search, options_from_collection_for_select(@results, "dep_airport_id", "dep_airport_id"), {:prompt => 'Departure Airport'}
+ = select_tag :search_arr_airport, options_from_collection_for_select(@results, "arr_airport_id", "arr_airport_id"), {:prompt => 'Arrival Airport'}
+ = select_tag :search_dep_date, options_from_collection_for_select(@results, :date_time_formatted, :date_time_formatted), {:prompt => 'Date'}
+ = select_tag :search_num_of_passengers, options_for_select([ '1', '2', '3', '4']), {:prompt => 'Number of Passengers'}
+ = button_tag "Search for Flight"
+
+
+%h3 Search results
+
 - @results.each do |result|
-  Flight ID: #{result.id}
-  %br/
-  = result.depairport
-  To
-  \#{result.arrairport}
-  %br/
-  = result.datetime
-  %br/
-  %br/
-  = link_to "Book Flight", about_path
-  - $flight_booking_id = result.id
-  %br/
-  \------------------------------
-  %br/
-  %br/
+ = "Flight ID: #{result.id}" 
+ %br/
+ = "Departure Airport: #{result.dep_airport.airport_code}"
+ %br/
+ = "Arrival Airport: #{result.arr_airport.airport_code}"
+ %br/
+ = "Date And Time: #{result.date_time}"
+ %br/
+ %br/
+ %------------------------------------------- 
+ %br/
+%br/
+%br/
+//hidden_field_tag passenger_id
+
+= form_with(model: Booking.new, url: bookings_path, method: :post) do |form|
+ = form.label :select_flight, style: "display: block"
+ = collection_radio_buttons(@bookings, :flight_id, @results, :id, :id)
+ = form.submit
+

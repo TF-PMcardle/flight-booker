@@ -10,23 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_19_135619) do
-  create_table "bookings", force: :cascade do |t|
-    t.string "flightid"
-    t.string "fname"
-    t.string "sname"
-    t.string "email"
-    t.string "passportnum"
-    t.datetime "dateofbirth"
-    t.string "gender"
+ActiveRecord::Schema[7.1].define(version: 2023_11_03_144756) do
+  create_table "airports", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "airport_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "create_flights", force: :cascade do |t|
-    t.string "depairport"
-    t.string "arrairport"
-    t.datetime "datetime"
+  create_table "bookings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "flight_id"
+    t.string "passenger_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "flights", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "dep_airport_id"
+    t.string "arr_airport_id"
+    t.datetime "date_time"
+    t.string "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "passengers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "fname"
+    t.string "sname"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
