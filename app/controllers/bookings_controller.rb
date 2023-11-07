@@ -9,40 +9,28 @@ class BookingsController < ApplicationController
     end
 
     def destroy
-        @booking = Booking.find(params[@booking.id])
-        @booking.destroy
+        @bookings = Booking.find(params[@bookings.id])
+        @bookings.destroy
         redirect_to bookings_path
         flash[:success] = "Booking was deleted successfully"
     end
     
     def new
         @booking = Booking.new
-        
     end
 
     def create
-        @booking = Booking.new(bookings_params)
-    	
-        session[:booking_id] = @booking.id
-    	redirect_to passengers_path, notice: "successfully created booking"
-        #@booking.flightid = flightselect.id
+    	@booking = Booking.new(flight_id: params[:flight_id], passenger_id: 1)
+        if @booking.save
+    	    redirect_to passengers_path(booking_id: @booking.id)
+        else
+            redirect_to bookings_path            
+        end
     end
-    		
-    
-
-
-
- 
-end
 
 private
-
-def bookings_params
-    params.permit(:id, :flight_id, :fname, :sname, :email, :passportnum, :dateofbirth)
-
-
-#def set_booking
-#  @bookings = Booking.find(params[:id])
-#end
+    def booking_params
+        params.require(:booking).permit(:flight_id, :passenger_id)
+    end
 end
 

@@ -1,7 +1,7 @@
 class SearchForFlightController < ApplicationController
     def search
-        $global_variable = 0
         @results = Flight.all
+
         if (params[:search] != "")      
            @results = @results.where("lower(dep_airport_id) LIKE :search", search: "%#{params[:search]}")  
         end
@@ -11,7 +11,6 @@ class SearchForFlightController < ApplicationController
         if (params[:search_dep_date] != "")
             @results = @results.where("lower(date_time) LIKE :search_dep_date", search_dep_date: "%#{params[:search_dep_date]}%")
         end
-        
     end
 end
 

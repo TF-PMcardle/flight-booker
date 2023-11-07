@@ -8,6 +8,8 @@ gem "rails", "~> 7.1.1"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+gem 'pry'
+
 
 gem "mysql2", "~> 0.5"
 
