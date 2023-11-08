@@ -1,4 +1,5 @@
-= form_tag(search_for_flight_path, :method => "get") do
+- no_of_pass =  params[:passenger_number].presence || 1
+= form_tag(search_for_flight_path, :method => "get") do |form|
  = select_tag :search, options_from_collection_for_select(@results, "dep_airport_id", "dep_airport_id"), {:prompt => 'Departure Airport'}
  = select_tag :search_arr_airport, options_from_collection_for_select(@results, "arr_airport_id", "arr_airport_id"), {:prompt => 'Arrival Airport'}
  = select_tag :search_dep_date, options_from_collection_for_select(@results, :date_time_formatted, :date_time_formatted), {:prompt => 'Date'}
@@ -22,10 +23,10 @@
  %br/
 %br/
 %br/
-//hidden_field_tag passenger_id
+
 
 = form_with(model: Booking.new, url: bookings_path, method: :post) do |form|
  = form.label :select_flight, style: "display: block"
  = collection_radio_buttons(@bookings, :flight_id, @results, :id, :id)
- = form.submit
+ = form.submit "Select Flight"
 

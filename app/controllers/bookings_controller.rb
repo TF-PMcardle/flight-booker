@@ -33,7 +33,7 @@ class BookingsController < ApplicationController
     end
 
     def create
-    	@booking = Booking.new(flight_id: params[:flight_id], passenger_id: 1)
+    	@booking = Booking.new(flight_id: params[:flight_id])
         if @booking.save
     	    redirect_to passengers_path(booking_id: @booking.id)
         else

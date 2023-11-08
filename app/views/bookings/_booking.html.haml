@@ -12,11 +12,15 @@
     %strong Leaving On:
     = booking.flight.date_time
   %p
-    %strong Lead Passenger Surname:
-    = booking.passenger.sname
-
+    %strong Lead Passenger Email:
+    = booking.passengers&.first&.email
+    %p
+    %strong Lead Passenger Name:
+    = booking.passengers&.first&.fname
   %p
-    %strong Email:
-    = booking.passenger.email
- 
+    %strong Lead Passenger Surname:
+    = booking.passengers&.first&.sname
+
+  
+
 

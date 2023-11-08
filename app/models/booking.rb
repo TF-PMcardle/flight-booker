@@ -1,5 +1,5 @@
 class Booking < ApplicationRecord
-    belongs_to :passenger, class_name: 'Passenger'
+
     belongs_to :flight, class_name: 'Flight'
-    
+    has_many :passengers, class_name: 'Passenger', foreign_key: 'booking_id'
 end
