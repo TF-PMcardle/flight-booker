@@ -1,14 +1,16 @@
+%br/
 - no_of_pass =  params[:passenger_number].presence || 1
 = form_tag(search_for_flight_path, :method => "get") do |form|
  = select_tag :search, options_from_collection_for_select(@results, "dep_airport_id", "dep_airport_id"), {:prompt => 'Departure Airport'}
  = select_tag :search_arr_airport, options_from_collection_for_select(@results, "arr_airport_id", "arr_airport_id"), {:prompt => 'Arrival Airport'}
  = select_tag :search_dep_date, options_from_collection_for_select(@results, :date_time_formatted, :date_time_formatted), {:prompt => 'Date'}
- = select_tag :search_num_of_passengers, options_for_select([ '1', '2', '3', '4']), {:prompt => 'Number of Passengers'}
  = button_tag "Search for Flight"
 
+%br/
+%br/
 
 %h3 Search results
-
+%br/
 - @results.each do |result|
  = "Flight ID: #{result.id}" 
  %br/
@@ -19,7 +21,7 @@
  = "Date And Time: #{result.date_time}"
  %br/
  %br/
- %------------------------------------------- 
+ %------------------------------------------------------------------------------- 
  %br/
 %br/
 %br/
