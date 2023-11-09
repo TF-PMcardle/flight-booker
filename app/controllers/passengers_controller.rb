@@ -16,7 +16,6 @@ class PassengersController < ApplicationController
     	if @Passenger.save
 
             session[:passenger_id] = @Passenger.id
-            #Passenger.first.bookings.last.passenger_id = @Passenger.id
             Passenger.first.bookings.last.update_attribute(:passenger_id, @Passenger.id)
     		redirect_to bookings_path, notice: "successfully created booking"
     	else

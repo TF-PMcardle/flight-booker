@@ -11,10 +11,10 @@ Rails.application.routes.draw do
  
  get "bookings", to: "bookings#index"
 
- get "bookings", to: "bookings#destroy"
+ delete "bookings", to: "bookings#destroy"
 
- get "bookings/edit", to: "bookings#edit"
- post "bookings/edit", to: "bookings#update"
+ get "bookings", to: "bookings#edit"
+ patch "bookings", to: "bookings#update"
 
  get "flight", to: "flights#index"
 
