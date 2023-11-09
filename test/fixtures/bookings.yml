@@ -2,8 +2,6 @@
 
 one:
   flight_id: MyString
-  passenger_id: MyString
 
 two:
   flight_id: MyString
-  passenger_id: MyString

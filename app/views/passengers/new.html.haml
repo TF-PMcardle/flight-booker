@@ -1,5 +1,4 @@
 = form_with(model: @passenger) do |form|
-
   %h1 Passenger Details
   %br/
   %br/
@@ -13,4 +12,5 @@
     = form.label :Email_Address, style: "display: block"
     = form.text_field :email
   %div
-    = form.submit
+    = form.button 'Complete Booking', value: '1', name: 'value', class: 'button', type: 'submit'
+    = form.button 'Add Another Passenger', value: '2', name: 'value', class: 'button', type: 'submit'

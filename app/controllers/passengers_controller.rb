@@ -12,12 +12,16 @@ class PassengersController < ApplicationController
     end
 
     def create
+        params[:booking_id] = Booking.last.id
     	@Passenger = Passenger.new(passengers_params)
     	if @Passenger.save
-
             session[:passenger_id] = @Passenger.id
-            Passenger.first.bookings.last.update_attribute(:passenger_id, @Passenger.id)
-    		redirect_to bookings_path, notice: "successfully created booking"
+            #binding.pry
+            if params[:value] == '2'
+                redirect_to passengers_path
+            else
+                redirect_to bookings_path, notice: "successfully created booking"
+            end
     	else
     		render :new
     end
@@ -29,7 +33,7 @@ end
 private
 
 def passengers_params
-    params.permit(:fname, :sname, :email)
+    params.permit(:fname, :sname, :email, :booking_id)
 end
 
 end
