@@ -5,12 +5,20 @@
   %div
     = form.label :First_Name, style: "display: block"
     = form.text_field :fname
+  %br/
+  %br/
   %div
     = form.label :Last_Name, style: "display: block"
     = form.text_field :sname
+  %br/
+  %br/
   %div
     = form.label :Email_Address, style: "display: block"
     = form.text_field :email
+  %br/
+  %br/  
+  %br/
+  %br/
   %div
     = form.button 'Complete Booking', value: '1', name: 'value', class: 'button', type: 'submit'
     = form.button 'Add Another Passenger', value: '2', name: 'value', class: 'button', type: 'submit'
